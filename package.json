@@ -1,0 +1,23 @@
+{
+  "name": "snokadb-assets",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sennahlake/snokadb-assets.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sennahlake/snokadb-assets/issues"
+  },
+  "homepage": "https://github.com/sennahlake/snokadb-assets#readme",
+  "description": "",
+  "devDependencies": {
+    "sharp": "^0.34.3"
+  }
+}

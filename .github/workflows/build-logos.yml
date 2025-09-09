@@ -1,0 +1,32 @@
+name: Build optimized logos
+
+on:
+  push:
+    paths:
+      - 'raw/**'
+      - 'tools/**'
+      - '.github/workflows/build-logos.yml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install sharp
+        run: npm i sharp
+
+      - name: Build webp variants
+        run: node tools/build-logos-ci.mjs
+
+      - name: Commit optimized logos
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'Build optimized logos (webp @1x/@2x)'
+          file_pattern: 'logos/**'
