@@ -7,12 +7,18 @@ on:
       - 'tools/**'
       - '.github/workflows/build-logos.yml'
 
+permissions:
+  contents: write   # 👈 ger Actions rätt att pusha commits
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}  # 👈 viktigt för att kunna pusha
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -30,3 +36,5 @@ jobs:
         with:
           commit_message: 'Build optimized logos (webp @1x/@2x)'
           file_pattern: 'logos/**'
+          commit_user_name: 'snokadb-bot'
+          commit_user_email: 'snokadb-bot@users.noreply.github.com'
