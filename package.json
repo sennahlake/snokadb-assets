@@ -1,8 +1,12 @@
 {
   "name": "snokadb-assets",
   "version": "1.0.0",
+  "description": "",
+  "type": "module",
   "main": "index.js",
   "scripts": {
+    "audit:logos": "node tools/audit-logos.mjs",
+    "optimize:logos": "node tools/optimize-logos.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,8 +20,8 @@
     "url": "https://github.com/sennahlake/snokadb-assets/issues"
   },
   "homepage": "https://github.com/sennahlake/snokadb-assets#readme",
-  "description": "",
   "devDependencies": {
+    "globby": "^14.1.0",
     "sharp": "^0.34.3"
   }
 }
